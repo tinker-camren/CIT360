@@ -83,9 +83,10 @@ public class MapExample {
         // Get the variable stored in this class and put the data from this 
         // function into it 
         System.out.println("Setting the map created in this as an attribute"
-                + "of the MapExample class so that the data exists outside"
-                + "of this function");
-        HashMap mapExample = CIT360.getMapExample().getExampleMap();
-        mapExample.putAll(hm);
+                + " of the MapExample class so that the data exists outside"
+                + " of this function");
+        
+        exampleMap.putAll(hm);
+        
     }
 }

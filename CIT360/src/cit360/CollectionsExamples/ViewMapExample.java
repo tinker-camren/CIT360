@@ -16,5 +16,7 @@ public class ViewMapExample {
         MapExample mapExample = CIT360.getMapExample(); 
         
         mapExample.mapFunctions();
+        String testKey = "Deborah Heart";
+        System.out.println(mapExample.getExampleMap().get(testKey));
     }
 }
