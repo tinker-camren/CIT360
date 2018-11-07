@@ -8,12 +8,17 @@ package cit360;
 import Controller.ApplicationController;
 import Controller.TestHandler;
 import Controller.TestPrompt;
+import ThreadsExecRun.ExecutablesExample;
+import ThreadsExecRun.ThreadsExample;
 import cit360.CollectionsExamples.ListExample;
 import cit360.CollectionsExamples.MapExample;
 import cit360.CollectionsExamples.QueueExample;
 import cit360.CollectionsExamples.ViewListExample;
 import cit360.CollectionsExamples.ViewMapExample;
 import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -60,6 +65,20 @@ public class CIT360 {
         ViewMapExample.viewMapExamples();
         HashMap manager = controllerExample.promptUser();
         appController.handleRequest("manager", manager);
+        
+        System.out.println("\nStarting Threads\\Runnables example");
+        ThreadsExample threadsExample = new ThreadsExample();
+        threadsExample.runThreads();
+        
+        System.out.println("\nStarting TExecutables\\Callables example");
+        ExecutablesExample executablesExample = new ExecutablesExample();
+        try {
+            executablesExample.runExecutables();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(CIT360.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(CIT360.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
