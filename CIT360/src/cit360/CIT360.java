@@ -7,18 +7,22 @@ package cit360;
 
 import Controller.ApplicationController;
 import Controller.TestHandler;
-import Controller.TestPrompt;
+import Model.JsonImport;
+import View.TestPrompt;
 import ThreadsExecRun.ExecutablesExample;
 import ThreadsExecRun.ThreadsExample;
-import cit360.CollectionsExamples.ListExample;
-import cit360.CollectionsExamples.MapExample;
-import cit360.CollectionsExamples.QueueExample;
-import cit360.CollectionsExamples.ViewListExample;
-import cit360.CollectionsExamples.ViewMapExample;
+import Model.ListExample;
+import Model.MapExample;
+import Model.QueueExample;
+import View.JsonExample;
+import View.ViewListExample;
+import View.ViewMapExample;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -30,6 +34,7 @@ public class CIT360 {
     static MapExample mapExample = new MapExample();
     static QueueExample queueExample = new QueueExample();
     static TestPrompt controllerExample = new TestPrompt();
+    static JsonImport jsonImport = new JsonImport();
     
 
     public static ListExample getListExample() {
@@ -55,14 +60,28 @@ public class CIT360 {
     public void setQueueExample(QueueExample queueExample) {
         this.queueExample = queueExample;
     }
+
+    public static JsonImport getJsonImport() {
+        return jsonImport;
+    }
+
+    public static void setJsonImport(JsonImport jsonImport) {
+        CIT360.jsonImport = jsonImport;
+    }
+
+   
+    
+    
     
     public static void main(String[] args) {        
         ApplicationController appController = new ApplicationController();
-        appController.mapCommand("manager", new TestHandler());        
+        appController.mapCommand("manager", new TestHandler());
         
         //List collections examples        
         ViewListExample.viewListExamples();
         ViewMapExample.viewMapExamples();
+        
+        System.out.println("\nStarting Application Controller example");
         HashMap manager = controllerExample.promptUser();
         appController.handleRequest("manager", manager);
         
@@ -70,7 +89,7 @@ public class CIT360 {
         ThreadsExample threadsExample = new ThreadsExample();
         threadsExample.runThreads();
         
-        System.out.println("\nStarting TExecutables\\Callables example");
+        System.out.println("\nStarting Executables\\Callables example");
         ExecutablesExample executablesExample = new ExecutablesExample();
         try {
             executablesExample.runExecutables();
@@ -79,6 +98,26 @@ public class CIT360 {
         } catch (ExecutionException ex) {
             Logger.getLogger(CIT360.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        System.out.println("\nStarting JSON example");
+        JsonExample jsonExample = new JsonExample();
+        jsonExample.JsonSimpleView();
+        try {
+            jsonExample.JsonExportToFile();
+        } catch(IOException ex) {
+            ex.printStackTrace();
+        }
+        System.out.println("\nImporting JSON example");
+        try {
+            jsonExample.JsonImportFromFile();
+            System.out.println("Import was successful!");
+        } catch (ParseException ex) {
+            Logger.getLogger(CIT360.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CIT360.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Imported JSON example:\n");
+        jsonExample.ViewImportedJsonToClass();
     }
     
 }

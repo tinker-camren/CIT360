@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package View;
 
 import cit360.CIT360;
-import cit360.CollectionsExamples.MapExample;
+import Model.MapExample;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

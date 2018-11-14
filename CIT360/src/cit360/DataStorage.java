@@ -3,11 +3,11 @@
  */
 package cit360;
 
-import cit360.CollectionsExamples.ListExample;
-import cit360.CollectionsExamples.MapExample;
-import cit360.CollectionsExamples.QueueExample;
-import cit360.CollectionsExamples.ViewListExample;
-import cit360.CollectionsExamples.ViewMapExample;
+import Model.ListExample;
+import Model.MapExample;
+import Model.QueueExample;
+import View.ViewListExample;
+import View.ViewMapExample;
 
 /**
  *

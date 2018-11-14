@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cit360.CollectionsExamples;
+package View;
 
 import cit360.CIT360;
+import Model.MapExample;
 
 /**
  *

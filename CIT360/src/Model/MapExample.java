@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cit360.CollectionsExamples;
+package Model;
 
 import cit360.CIT360;
 import java.util.*;
