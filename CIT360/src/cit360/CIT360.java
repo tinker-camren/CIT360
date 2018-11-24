@@ -121,11 +121,11 @@ public class CIT360 {
         System.out.println("Imported JSON example:\n");
         jsonExample.ViewImportedJsonToClass();
         
-        System.out.println("\nStarting HTTP/URL example");
-        HTTPExample httpExample = new HTTPExample();
-        
-        JSONEchoClient theClient = new JSONEchoClient();
-        theClient.go();
+//        System.out.println("\nStarting HTTP/URL example");
+//        HTTPExample httpExample = new HTTPExample();
+//        
+//        JSONEchoClient theClient = new JSONEchoClient();
+//        theClient.go();
         
     }
     
