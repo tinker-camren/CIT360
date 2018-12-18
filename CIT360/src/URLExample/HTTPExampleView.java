@@ -29,7 +29,7 @@ public class HTTPExampleView {
                 + "\nExample: https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/json-simple/json-simple-1.1.1.jar\n");
         String url2 = input.readLine();
         
-        System.out.println("Please enter the file path to save the file to: ");
+        System.out.println("\nPlease enter the file path to save the file to: ");
         String saveDir = input.readLine();
          
         boolean isValidConn = httpExample.isConnectionValid(url);
